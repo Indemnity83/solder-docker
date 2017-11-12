@@ -7,7 +7,6 @@ A Docker environment utilizing docker-compose to facilitate running Solder. The 
 ### Requirements
  * Git
  * Docker >= 1.12.0+
- * Curl (optional)
 
 ### Install Solder Docker
 
@@ -16,7 +15,6 @@ Installing Solder-Docker is as easy as cloning the solder-docker repository and 
 ```
 $> git clone https://github.com/solderio/solder-docker
 $> cd solder-docker
-$> ./install
 $> docker-compose run --rm composer install --no-dev
 $> docker-compose run --rm composer run-script post-root-package-install
 ```
