@@ -1,0 +1,3 @@
+[submodule "data/solder"]
+	path = solder
+	url = https://github.com/solderio/solder
