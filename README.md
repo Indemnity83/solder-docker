@@ -1,4 +1,4 @@
-# Official Docker stack for Solder
+# Unofficial Docker stack for Solder
 
 A Docker environment utilizing docker-compose to facilitate running Solder. The only pre-requisites are git, docker and docker-compose. Great if you want to just test it out locally, or even to deploy for production.
 
