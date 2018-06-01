@@ -1,2 +1,3 @@
-data/
+data/db/mysql/
 solder/
+.DS_Store
