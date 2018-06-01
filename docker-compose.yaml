@@ -1,54 +1,39 @@
-version: '2'
-
+version: '3'
 services:
-  db:
-    image: mysql
-    restart: always
-    volumes:
-      - ./data:/var/lib/mysql
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=solder
-      - MYSQL_USER=solder
-      - MYSQL_PASSWORD=solder
-
-  web:
-    image: nginx
-    restart: always
-    depends_on:
-      - php
-    ports:
-      - 8080:80
-    volumes:
-      - ./solder:/home/solder
-      - ./nginx/site.conf:/etc/nginx/conf.d/default.conf
-
-  php:
-    build: ./phpfpm
-    restart: always
-    volumes:
-      - ./solder:/home/solder
-    depends_on:
-      - db
-    working_dir: /home/solder
-    environment:
-      - APP_ENV=local
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_DATABASE=solder
-      - DB_USERNAME=solder
-      - DB_PASSWORD=solder
-
-  composer:
-    image: composer
-    restart: "no"
-    volumes:
-      - ./solder:/home/solder
-    working_dir: /home/solder
-    environment:
-      - APP_ENV=local
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_DATABASE=solder
-      - DB_USERNAME=solder
-      - DB_PASSWORD=solder
+    web:
+        image: nginx
+        restart: always
+        depends_on:
+          - php
+        ports:
+          - 80:80
+        volumes:
+          - ./solder:/home/solder
+          - ./nginx/site.conf:/etc/nginx/conf.d/default.conf
+    php:
+        build: ./phpfpm
+        restart: always
+        volumes:
+          - ./solder:/home/solder
+        depends_on:
+          - db
+        links:
+          - db
+        working_dir: /home/solder
+        environment:
+          - APP_ENV=local
+          - DB_CONNECTION=mysql
+          - DB_HOST=db
+          - DB_DATABASE=solder
+          - DB_USERNAME=solder
+          - DB_PASSWORD=solder
+    db:
+        image: mariadb
+        restart: always
+        environment:
+            - MYSQL_DATABASE=solder
+            - MYSQL_RANDOM_ROOT_PASSWORD=yes
+            - MYSQL_USER=solder
+            - MYSQL_PASSWORD=solder
+        volumes:
+            - "./data/db/mysql:/var/lib/mysql"
