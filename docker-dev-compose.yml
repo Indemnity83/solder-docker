@@ -1,0 +1,19 @@
+version: '3'
+services:
+    composer:
+        image: "composer"
+        volumes:
+            - ./solder:/home/solder
+        working_dir: /home/solder
+        environment:
+            - APP_ENV=local
+            - DB_CONNECTION=mysql
+            - DB_HOST=db
+            - DB_DATABASE=solder
+            - DB_USERNAME=solder
+            - DB_PASSWORD=solder
+    npm:
+        image: node:latest
+        volumes:
+            - ./solder:/home/solder
+        working_dir: /home/solder
