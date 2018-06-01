@@ -1,3 +1,3 @@
-[submodule "data/solder"]
+[submodule "solder"]
 	path = solder
-	url = https://github.com/solderio/solder
+	url = https://github.com/TechnicPack/solder.git
