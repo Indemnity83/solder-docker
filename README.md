@@ -5,8 +5,8 @@ A Docker environment utilizing docker-compose to facilitate running Solder. The 
 ## Getting started
 
 ### Requirements
-    * Git
-    * Docker >= 1.13.0
+  * Git
+  * Docker >= 1.13.0
     
 ### Install Solder Docker
 
