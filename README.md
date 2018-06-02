@@ -14,7 +14,7 @@ Installing Solder Docker is easy, and it involves a few simple steps.
 Get started by opening a terminal/command prompt window. The process will be similar to installing non-dockerized Solder.
 
 ```
-git clone https://github.com/MetalBreaker/solder-docker.git
+git clone https://github.com/Indemnity83/solder-docker.git
 cd solder-docker
 ```
 
